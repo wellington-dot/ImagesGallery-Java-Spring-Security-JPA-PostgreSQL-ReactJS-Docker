@@ -1,5 +1,6 @@
 package com.wsystem.ImagesGallery.application.Images;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,5 +13,6 @@ public class ImageDTO {
     private String name;
     private String extension;
     private Long size;
-    private LocalDate uploadData;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate uploadDate;
 }

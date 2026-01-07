@@ -29,7 +29,7 @@ public class ImagesMapper {
                 .extension(image.getExtension().name())
                 .name(image.getName())
                 .size(image.getSize())
-                .uploadData(image.getUploadDate().toLocalDate())
+                .uploadDate(image.getUploadDate().toLocalDate())
                 .build();
     }
 }
