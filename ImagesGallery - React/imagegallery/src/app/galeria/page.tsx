@@ -1,9 +1,10 @@
 'use client'
 
-import { Template, ImageCard } from '@/components'
+import { Template, ImageCard, Button, InputText } from '@/components'
 import { Image } from '@/resources/image/image.resource'
 import { useImageService } from '@/resources/image/image.service'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function GaleriaPage(){
 
@@ -39,10 +40,7 @@ export default function GaleriaPage(){
         <Template loading={loading}>
             <section className='flex flex-col items-center justify-center my-3'>
                 <div className='flex space-x-4'>
-                    <input type='text' 
-                        onChange={event => setQuery(event.target.value)} // pega o valor digitado no campo input, e seta na query
-                        className='border px-5 py-2 rounded-md text-gray-900'/>
-                        
+                    <InputText placeholder='Type Name or Tags' onChange={event => setQuery(event.target.value)}/>
                     <select onChange={event => setExtension(event.target.value)} 
                         className='border px-4 py-2 rounded-md text-gray-900'>
                         <option value=''>All format</option>
@@ -50,9 +48,11 @@ export default function GaleriaPage(){
                         <option value='JPEG'>JPEG</option>
                         <option value='GIF'>GIF</option>
                     </select>
+                    <Button color='bg-blue-500 hover:bg-blue-300' label='Search' onClick={searchImages}/>
                     
-                    <button className='bg-blue-500 hover:bg-blue-300 text-white px-4 py-2 rounded-md' onClick={searchImages}>Search</button>
-                    <button className='bg-yellow-500 hover:bg-yellow-300 text-white px-4 py-2 rounded-md '>Add new</button>
+                    <Link href='/formulario'>
+                        <Button color='bg-yellow-500 hover:bg-yellow-300' label='Add new'/>
+                    </Link>
                 </div>
             </section>
     
